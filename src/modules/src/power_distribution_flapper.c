@@ -173,11 +173,21 @@ void powerDistribution(const control_t *control, motors_thrust_uncapped_t* motor
     motorThrustUncapped->motors.m3 = flapperConfig.yawServoNeutral*act_max / 100.0f - control->yaw; // yaw servo
     motorThrustUncapped->motors.m1 =  0.5f * control->roll + thrust * (1.0f + flapperConfig.rollBias / 100.0f); // left motor
     motorThrustUncapped->motors.m4 = -0.5f * control->roll + thrust * (1.0f - flapperConfig.rollBias / 100.0f); // right motor
+
+    // motorThrustUncapped->motors.m1 = 32500; // pitch servo
+    // motorThrustUncapped->motors.m3 = 32500; // yaw servo
+    // motorThrustUncapped->motors.m2 = 32500; // left motor
+    // motorThrustUncapped->motors.m4 = 32500; // right motor
   #else
     motorThrustUncapped->motors.m1 = flapperConfig.pitchServoNeutral * act_max / 100.0f + pitch_ampl * control->pitch; // pitch servo
     motorThrustUncapped->motors.m3 = flapperConfig.yawServoNeutral*act_max / 100.0f - control->yaw; // yaw servo
     motorThrustUncapped->motors.m2 =  0.5f * control->roll + thrust * (1.0f + flapperConfig.rollBias / 100.0f); // left motor
     motorThrustUncapped->motors.m4 = -0.5f * control->roll + thrust * (1.0f - flapperConfig.rollBias / 100.0f); // right motor
+
+    // motorThrustUncapped->motors.m1 = 32500; // pitch servo
+    // motorThrustUncapped->motors.m3 = 32500; // yaw servo
+    // motorThrustUncapped->motors.m2 = 32500; // left motor
+    // motorThrustUncapped->motors.m4 = 32500; // right motor
   #endif
 }
 
